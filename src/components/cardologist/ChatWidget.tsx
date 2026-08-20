@@ -59,17 +59,43 @@ export function ChatWidget() {
       } else {
         const reader = res.body?.getReader();
         const decoder = new TextDecoder();
-        let assistantContent = "";
         setMessages((prev) => [...prev, { role: "assistant", content: "" }]);
 
         if (reader) {
           while (true) {
             const { done, value } = await reader.read();
             if (done) break;
-            assistantContent += decoder.decode(value, { stream: true });
+            const chunk = decoder.decode(value, { stream: true });
             setMessages((prev) => {
               const updated = [...prev];
-              updated[updated.length - 1] = { role: "assistant", content: assistantContent };
+              const lastMessage = updated[updated.length - 1];
+
+              if (!lastMessage || lastMessage.role !== "assistant") {
+                return updated;
+              }
+
+              updated[updated.length - 1] = {
+                role: "assistant",
+                content: `${lastMessage.content}${chunk}`,
+              };
+              return updated;
+            });
+          }
+
+          const trailingChunk = decoder.decode();
+          if (trailingChunk) {
+            setMessages((prev) => {
+              const updated = [...prev];
+              const lastMessage = updated[updated.length - 1];
+
+              if (!lastMessage || lastMessage.role !== "assistant") {
+                return updated;
+              }
+
+              updated[updated.length - 1] = {
+                role: "assistant",
+                content: `${lastMessage.content}${trailingChunk}`,
+              };
               return updated;
             });
           }

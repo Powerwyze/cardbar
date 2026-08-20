@@ -25,8 +25,8 @@ export default function AdminOrderDetailPage({ params }: { params: Promise<{ id:
             <h2 className="font-serif text-xl text-bar-cream mb-4">Order {id.slice(0, 8)}</h2>
             <div className="grid grid-cols-2 gap-4 text-sm">
               {[
-                ["Customer", "Alex Rivera"],
-                ["Email", "alex@rivera.com"],
+                ["Customer", "Sample customer"],
+                ["Email", "Not provided"],
                 ["Card Type", "Metal ($50)"],
                 ["Template", "Executive Reserve"],
                 ["AI Add-On", "Enabled ($10/mo)"],

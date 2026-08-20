@@ -21,20 +21,20 @@ export interface LandingPageProps {
 }
 
 export const DEMO_DATA: LandingPageData = {
-  profileName: "Alex Rivera",
-  title: "Founder & CEO",
-  companyName: "Rivera Consulting",
-  bio: "Helping businesses grow through strategic consulting and smart technology.",
-  phone: "+1 (555) 123-4567",
-  email: "alex@rivera.com",
-  website: "https://rivera.com",
+  profileName: "The Card Bar",
+  title: "NFC Business Cards, Served Smart",
+  companyName: "The Card Bar",
+  bio: "Custom NFC business cards paired with branded landing pages, automations, and AI-powered follow-up.",
+  phone: "",
+  email: "",
+  website: "https://thecard.bar",
   themeColors: ["#C9A962", "#0A0A0B"],
   links: [
-    { label: "Portfolio", url: "#" },
-    { label: "Book a Call", url: "#" },
-    { label: "LinkedIn", url: "#" },
+    { label: "Build Your Card", url: "/build" },
+    { label: "View Pricing", url: "/pricing" },
+    { label: "Browse Use Cases", url: "/use-cases" },
   ],
-  socialLinks: { linkedin: "#", twitter: "#" },
+  socialLinks: {},
 };
 
 export type { TemplateType };

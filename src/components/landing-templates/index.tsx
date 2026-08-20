@@ -145,11 +145,20 @@ export function CreatorPourTemplate({ data }: LandingPageProps) {
   return (
     <PageShell data={data}>
       <div className="aspect-video rounded-xl bg-white/5 mb-4 flex items-center justify-center text-sm opacity-40">Latest Video</div>
-      <div className="space-y-2">
-        {["YouTube", "Spotify", "Merch Store", "Fan Newsletter"].map((link) => (
-          <a key={link} href="#" className="block w-full py-3 rounded-xl text-center text-sm border" style={{ borderColor: `${accent}33`, color: accent }}>{link}</a>
-        ))}
-      </div>
+      {data.links.length > 0 && (
+        <div className="space-y-2">
+          {data.links.map((link) => (
+            <a
+              key={link.label}
+              href={link.url}
+              className="block w-full py-3 rounded-xl text-center text-sm border"
+              style={{ borderColor: `${accent}33`, color: accent }}
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </PageShell>
   );
 }

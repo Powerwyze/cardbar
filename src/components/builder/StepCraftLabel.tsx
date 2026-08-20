@@ -66,12 +66,12 @@ export function StepCraftLabel() {
 
       <div className="space-y-4 mb-6">
         {[
-          { key: "fullName", label: "Full Name", placeholder: "Alex Rivera" },
-          { key: "title", label: "Title", placeholder: "Founder & CEO" },
-          { key: "businessName", label: "Business Name", placeholder: "Rivera Consulting" },
-          { key: "email", label: "Email", placeholder: "alex@example.com" },
-          { key: "phone", label: "Phone", placeholder: "+1 (555) 123-4567" },
-          { key: "website", label: "Website", placeholder: "https://example.com" },
+          { key: "fullName", label: "Full Name", placeholder: "Enter full name" },
+          { key: "title", label: "Title", placeholder: "Enter professional title" },
+          { key: "businessName", label: "Business Name", placeholder: "Enter business name" },
+          { key: "email", label: "Email", placeholder: "name@company.com" },
+          { key: "phone", label: "Phone", placeholder: "Enter phone number" },
+          { key: "website", label: "Website", placeholder: "https://your-site.com" },
         ].map((field) => (
           <div key={field.key}>
             <label className="text-bar-cream/50 text-xs uppercase tracking-wider">{field.label}</label>

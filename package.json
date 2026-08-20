@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
+    "test:branded-pages": "node --test scripts/verify-branded-pages.mjs",
     "setup:stripe": "node scripts/setup-stripe.mjs",
     "verify:env": "node scripts/verify-env.mjs"
   },

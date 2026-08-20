@@ -1,13 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
 import { GlassPanel } from "@/components/ui/GlassPanel";
 import { GoldButton } from "@/components/ui/GoldButton";
-import Link from "next/link";
 
 const DEMO_ORDERS = [
   {
     id: "ord-001",
     customer: "Alex Rivera",
-    email: "alex@rivera.com",
+    email: "Not provided",
     cardType: "metal",
     template: "executive-reserve",
     status: "design_pending",
@@ -17,7 +16,7 @@ const DEMO_ORDERS = [
   {
     id: "ord-002",
     customer: "Sarah Chen",
-    email: "sarah@luxe.com",
+    email: "Not provided",
     cardType: "basic",
     template: "lead-generator",
     status: "landing_page_build",
@@ -27,7 +26,7 @@ const DEMO_ORDERS = [
   {
     id: "ord-003",
     customer: "Marcus Williams",
-    email: "marcus@realty.com",
+    email: "Not provided",
     cardType: "metal",
     template: "appointment-setter",
     status: "ready_to_ship",
@@ -99,9 +98,9 @@ export default async function AdminPage() {
                 </td>
                 <td className="p-4 text-bar-cream/50 text-xs">{order.createdAt}</td>
                 <td className="p-4">
-                  <Link href={`/admin/orders/${order.id}`}>
-                    <GoldButton size="sm" variant="outline">View</GoldButton>
-                  </Link>
+                  <GoldButton href={`/admin/orders/${order.id}`} size="sm" variant="outline">
+                    View
+                  </GoldButton>
                 </td>
               </tr>
             ))}
